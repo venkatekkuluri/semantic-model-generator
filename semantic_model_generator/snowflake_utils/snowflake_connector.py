@@ -135,7 +135,8 @@ def get_table_primary_keys(
     cursor.execute(query)
     primary_keys = cursor.fetchall()
     if primary_keys:
-        return [pk[3] for pk in primary_keys]
+        # Changed
+        return [pk[4] for pk in primary_keys]
     return None
 
 

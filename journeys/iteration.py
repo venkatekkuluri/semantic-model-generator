@@ -221,7 +221,7 @@ def add_verified_query(
         verified_at=int(time.time()),
         use_as_onboarding_question=is_onboarding_question,
     )
-    # import pdb;pdb.set_trace()
+
     st.session_state.semantic_model.verified_queries.append(verified_query)
     st.success(
         "Verified Query Added! You can go back to validate your YAML again and upload; or keep adding more verified queries."
@@ -239,7 +239,7 @@ def display_content(
     message_index = message_index or len(st.session_state.messages)
     question = ""
     for item in content:
-        # import pdb;pdb.set_trace()
+        # Changed
         if item["type"] == "text":
             if question == "" and "How can I help you" not in item["text"]:
                 question = item["text"].split(':')[-1].replace('\n', '')
